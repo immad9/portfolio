@@ -43,6 +43,7 @@ const formSubmitHandler = async (data, setErrors, setSnackbar, setLoader) => {
 
   if (!isValid) {
     setLoader(false)
+    return
   };
 
   try {

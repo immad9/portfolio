@@ -93,7 +93,7 @@ const [errors,setErrors] = useState({
       <FormHelperText  sx={{ml:0,fontFamily:"var(--font-body)",color:"#d32f2f",fontSize:12}} id="my-helper-text">{errors.message}</FormHelperText>
      </FormControl>
 
-      <Box component={"div"} width={"fit-content"} display={loader} onClick={()=>formSubmitHandler(userData, setErrors, setSnackbar, setLoader)}><BgButton text={loader? <CircularProgress sx={{color:"var(--text-light)"}} size={24}  /> : "Submit"} icon={!loader && <FaRegPaperPlane/>} sx={{gap:10}}/></Box>
+      <Box component={"div"} width={"fit-content"} display={loader} onClick={()=>formSubmitHandler(userData, setErrors, setSnackbar, setLoader)}><BgButton download={false} text={loader? <CircularProgress sx={{color:"var(--text-light)"}} size={24}  /> : "Submit"} icon={!loader && <FaRegPaperPlane/>} sx={{gap:10}}/></Box>
      </Box>   
    </Box>
        

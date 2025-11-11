@@ -4,16 +4,16 @@ import { useNavigate } from "react-router";
 import { useMyContext } from "../hooks/MyContext";
 
 
-const BgButton = ({text,icon,sx = ""})=> {
-  // const handleDownload = () => {
-  // const link = document.createElement("a");
-  // link.href = "/files/report.pdf";
-  // link.download = "report.pdf";
-  // link.click();
-// };
+const BgButton = ({text,icon,sx = "", download = true})=> {
+const handleDownload = () => {
+  const link = document.createElement("a");
+  link.href = "/Immad Resume.pdf"; 
+  link.download = "Immad Resume.pdf";
+  link.click();
+};
   return (
      <motion.button
-      // onClick={handleDownload}
+      onClick={download && handleDownload}
       whileTap={{ scale: 0.95 }}
       style={{
         background: "var(--primary-color)",

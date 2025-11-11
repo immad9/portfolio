@@ -31,9 +31,6 @@ body{
 }
 
 
-/* From Uiverse.io by JustCode14 */ 
-/* Theme Switch */
-/* The switch - the box around the slider */
 .switch {
   font-size: 17px;
   position: relative;
@@ -127,4 +124,29 @@ body{
 
 .switch input:checked ~ .slider .cloud {
   opacity: 1;
+}
+
+
+/* Target the whole scrollbar */
+::-webkit-scrollbar {
+  width: 10px;              /* width of vertical scrollbar */
+  height: 100%;             /* height of horizontal scrollbar */
+}
+
+/* Track (background of scrollbar) */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);      /* track color */
+  border-radius: 6px;
+}
+
+/* Thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);   /* thumb color */
+  border-radius: 6px;
+  border: 3px solid #f0f0f0; /* space around thumb */
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color);
 }
