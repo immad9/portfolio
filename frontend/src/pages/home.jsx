@@ -46,7 +46,7 @@ const skills = [
             <AnimatePresence mode="wait">
               <motion.span
                 key={skills[index]}
-                initial={{ y: "30%", opacity: 0 }}
+                initial={{ y: "25%", opacity: 0 }}
                 animate={{ y: "0%", opacity: 1 }}
                 exit={{ y: "-30%", opacity: 0 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}

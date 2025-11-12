@@ -1,37 +1,105 @@
-import React, { useState } from "react";
+import { Box } from "@mui/material";
 import { useMyContext } from "../hooks/MyContext";
+
 const ToggleButton = () => {
-  const [checked, setChecked] = useState(true);
-  const {toggleTheme,theme} = useMyContext()
-  
+  const { toggleTheme, theme } = useMyContext();
+  const checked = theme === "dark";
 
   const handleToggle = () => {
-    setChecked(!checked);
-    toggleTheme()
-
+    toggleTheme();
   };
 
   return (
-    <label className="switch">
-      <input
-        type="checkbox"
-        id="checkbox"
-        checked={theme === "light"? true : false}
-        onChange={handleToggle}
-      />
-      <span className="slider">
-        <div className="star star_1"></div>
-        <div className="star star_2"></div>
-        <div className="star star_3"></div>
-        <svg viewBox="0 0 16 16" className="cloud_1 cloud">
-          <path
-            transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-            fill="#FDC435"
-            d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-          ></path>
-        </svg>
-      </span>
-    </label>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      {/* Switch Wrapper */}
+      <Box
+        onClick={handleToggle}
+        sx={{
+          backgroundColor: checked ? "hsl(198,90%,15%)" : "hsl(48,90%,85%)",
+          borderRadius: "20px",
+          width: "60px",
+          height: "25px",
+          display: "flex",
+          alignItems: "center",
+          padding: "0.25em",
+          position: "relative",
+          cursor: "pointer",
+          transition: "0.3s ease-in-out",
+        }}
+      >
+        {/* Switch Knob */}
+        <Box
+          sx={{
+            backgroundColor: checked ? "hsl(198,90%,55%)" : "hsl(48,100%,50%)",
+            borderRadius: "50%",
+            width: "25px",
+            height: "25px",
+            position: "absolute",
+            left: checked ? "calc(100% - 1.5em - 0.25em)" : "0.25em",
+            // bottom: "2px",
+            transition: "0.3s ease-in-out",
+          }}
+        />
+
+        {/* Icon (Sun / Moon Effect) */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "5px",
+            left: checked ? "2.2em" : "0.6em",
+            width: "25px",
+            height: "25px",
+            transition: "0.4s",
+          }}
+        >
+          {/* Sun / Moon center */}
+          <Box
+            sx={{
+              borderRadius: "50%",
+              boxShadow: checked
+                ? "0.2em -0.2em 0 0.2em white inset"
+                : "0.4em -0.4em 0 0.5em white inset",
+              width: "1em",
+              height: "1em",
+              position: "absolute",
+              top: checked ? "3.5px" : "4px",
+              left: checked ? "10px" : "-1px",
+              transform: checked ? "scale(1)" : "scale(0.5)",
+              transition: "0.4s ease-in-out",
+            }}
+          />
+
+          {/* Rays (hidden when dark mode) */}
+          {[...Array(8)].map((_, i) => (
+            <Box
+              key={i}
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "0.05em",
+                width: "2px",
+                height: "3px",
+                position: "absolute",
+                top: "50%",
+                left: "6.5px",
+                transformOrigin: "50% 0",
+                transform: `rotate(${i * 45}deg) translateY(${
+                  checked ? "0.8em" : "0.45em"
+                })`,
+                opacity: checked ? 0 : 1,
+                transition: "0.4s ease-in-out",
+              }}
+            />
+          ))}
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
