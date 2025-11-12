@@ -78,7 +78,7 @@ const About = ()=> {
            </Box>
 
         <Box width={"100%"} sx={{overflowX:"hidden",overflowY:"auto"}} height={"100vh"}>
-           <Box justifyContent={"space-between"} bgcolor={"var(--bg-color)"} px={{xs:2,md:3}} position={"sticky"} top={0} display={"flex"} alignItems={"center"} color={"var(--text-light)"} borderBottom={"1px solid var(--primary-color)"} height={56} width={"100%"}>
+           <Box zIndex={1500} justifyContent={"space-between"} bgcolor={"var(--bg-color)"} px={{xs:2,md:3}} position={"sticky"} top={0} display={"flex"} alignItems={"center"} color={"var(--text-light)"} borderBottom={"1px solid var(--primary-color)"} height={56} width={"100%"}>
               <Typography sx={{position:"relative","&::after":{content: '""', position: "absolute", left: 0, bottom: 2, height: "2px", width: "50%",borderRadius:"100px", background: "linear-gradient(110deg, var(--bg-color), var(--primary-color) 100%)", transition: "width 0.3s ease",},"&:hover::after":{width:"100%"}}} variant="h5" fontSize={36} letterSpacing={3} fontWeight={600} fontFamily={"var(--font-heading)"}>{selectedTab}</Typography>
                <Box mr={"30px"} display={"flex"} alignItems={"center"} justifyContent={"center"} gap={4}><ToggleButton/> <HamburgerIcon open={open} setOpen={setOpen}/></Box>
                
